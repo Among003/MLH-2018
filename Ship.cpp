@@ -4,7 +4,7 @@ Ship::Ship(int x){
 	this->size = x;
 }
 
-Ship::~Ship();
+Ship::~Ship(){};
 
 int Ship::getSize(){
 	return this->size;

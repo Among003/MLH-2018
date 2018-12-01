@@ -2,16 +2,19 @@
 #define __GRID_H__
 
 #include <iostream>
+#include <cmath>
 
 
 class Grid{
   public:
 	Grid();
 	~Grid();
-	void setShip(Ship*, int x, int y);
-	void setHit(int x, int y);
+	void setShip(Ship* S, int x1, int y1, int x2, int y2);
+	bool setHit(int x, int y);
+	bool isValid(Ship* S, int x, int y, int x2, int y2);
   private:
   	int GameBoard [10][10]; 
+  	int health = 17; 
 	
 };
 

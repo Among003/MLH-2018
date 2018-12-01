@@ -8,12 +8,34 @@ Grid::Grid(){
 Grid::~Grid(){
 }
 
-void Grid:: setShip(Ship*, int x, int y){
+void Grid::setShip(Ship* S, int x1, int y1, int x2, int y2){
+	if(isValid(S, x1, y1, x2, y2)){
 
+
+	}
 }
 
-void Grid:: setHit(int x, int y){
+bool Grid::setHit(int x, int y){
+	if(x < 0 || x > 9 || y < 0 || y > 9){
+		std::cout << "Invalid Shot" << std::endl;
+		return false;
+	}
+	if(GameBoard[x][y] == 2){
+		std::cout << "Already Fired" << std::cout;
+		return false;
+	}
 
+	if(GameBoard[x][y] == 1){
+		std::cout << "HIT!" << std::endl;
+		--health;
+	}
+	else{
+		std::cout << "MISS" << std::endl;
+	}
+
+	GameBoard[x][y] = 2;
+
+	return true;
 
 }
 
@@ -39,3 +61,31 @@ void Grid::printBoard(){
 }
 
 
+bool Grid::isValid(Ship* S, int x1, int y1, int x2, int y2){
+	if(x1 < 0 || x1 > 9 || x2 < 0 || x2 > 9 || y1 < 0 || y1 > 9 || y2 < 0 || y2 > 9){
+		return false;
+	}
+	else if(x1 != x2  && y1 != y2){
+		return false;
+	}
+	else if(max(abs(x1 - x2), abs(y1 - y2)) != S->getSize()){
+		return false;
+	}
+	if(abs(x1 - x2)){           //Vertical Placement
+		for(int i = min(x1, x2); i <= max(x1, x2); ++i){
+			if(GameBoard[i][y1] != 0){
+				return false;
+			}
+		}
+	}
+	else {						//Horizontal Placement
+		for(int i = min(y1, y2); i <= max(y1, y2); ++i){
+			if(GameBoard[x1][i] != 0){
+				return false;
+			}
+		}
+	}
+	
+	return true
+
+}

@@ -8,11 +8,28 @@ Grid::Grid(){
 Grid::~Grid(){
 }
 
-void Grid::setShip(Ship* S, int x1, int y1, int x2, int y2){
-	if(isValid(S, x1, y1, x2, y2)){
-
-
+bool Grid::setShip(Ship* S, int x1, int y1, int x2, int y2){
+	if(!isValid(S, x1, y1, x2, y2)){
+		return false;
 	}
+	
+	if(abs(x1 - x2)){           //Vertical Placement
+		for(int i = std::min(x1, x2); i <= std::max(x1, x2); ++i){
+			if(GameBoard[i][y1] != 0){
+				return false;
+			}
+		}
+	}
+	else {						//Horizontal Placement
+		for(int i = std::min(y1, y2); i <= std::max(y1, y2); ++i){
+			if(GameBoard[x1][i] != 0){
+				return false;
+			}
+		}
+	}
+
+
+		
 }
 
 bool Grid::setHit(int x, int y){

@@ -10,7 +10,7 @@ class Grid{
   public:
 	Grid();
 	~Grid();
-	void setShip(Ship* S, int x1, int y1, int x2, int y2);
+	bool setShip(Ship* S, int x1, int y1, int x2, int y2);
 	bool setHit(int x, int y);
 	bool isValid(Ship* S, int x, int y, int x2, int y2);
 	void printBoard();

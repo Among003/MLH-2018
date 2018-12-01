@@ -17,4 +17,10 @@ void Grid:: setHit(int x, int y){
 
 }
 
+void Grid::printBoard(){
+
+
+
+};
+
 

@@ -1,13 +1,15 @@
 #include "Player.h"
 
-Player::Player(string name){
+Player::Player(){}
+
+Player::Player(std::string name){
 	this->name = name;
-	Grid*  MyGrid = new Grid;
-	Grid*  EnemyGrid = new Grid;
+	Grid*  MyGrid = new Grid();
+	Grid*  EnemyGrid = new Grid();
 }
 Player::~Player(){}
 
-string Player:: getname(){
+std::string Player:: getname(){
 	return name;
 }
 

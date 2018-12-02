@@ -2,13 +2,30 @@
 
 
 Grid::Grid(){
-	memset(GameBoard, 0, sizeof(GameBoard));
+	GameBoard[0][0] = 0;
+	for(int i = 0; i < 10; ++i){
+		for(int j = 0; j < 10; ++j){
+			this->GameBoard[i][j] = 0;
+		}
+	}
+
+	std::cout << GameBoard[0][0] << std::endl;
+
+	// for(int i = 0; i < 10; ++i){
+	// 	for(int j = 0; j < 10; ++j){
+	// 		std::cout << GameBoard[i][j] << ' ';
+	// 	}
+	// 	std::cout << std::endl;
+	// }
+
+
+
 }
 
 Grid::~Grid(){
 }
 
-bool Grid::setShip(Ship* S, int x1, int y1, int x2, int y2){
+bool Grid::setShip(Ship S, int x1, int y1, int x2, int y2){
 	if(!isValid(S, x1, y1, x2, y2)){
 		return false;
 	}
@@ -65,28 +82,28 @@ void Grid::printBoard(){
 			else if(GameBoard[i][j] == 1){
 				std::cout << " ~ |";
 			}
-			else if(GameBoard[i][j] == 2){
+			else {
 				std::cout << " X |";
 			}
 		}
-		std::cout << std:: endl << "--------------------------------------------------" << std::endl;
+		std::cout << std::endl << "--------------------------------------------------" << std::endl;
 
 	}
 }
 
 
-bool Grid::isValid(Ship* S, int x1, int y1, int x2, int y2){
+bool Grid::isValid(Ship S, int x1, int y1, int x2, int y2){
 	if(x1 < 0 || x1 > 9 || x2 < 0 || x2 > 9 || y1 < 0 || y1 > 9 || y2 < 0 || y2 > 9){
+		std::cout << "Coordinates out of range" << std::endl;
 		return false;
 	}
 	else if(x1 != x2  && y1 != y2){
 		std::cout << "Place ship in straightline pls" << std::endl;
 		return false;
 	}
-	else if(std::max(abs(x1 - x2), abs(y1 - y2)) != S->getSize()){
+	else if(std::max(abs(x1 - x2), abs(y1 - y2)) != S.getSize()){
 		std::cout<< "Coordinates do not match size of ship" << std::endl;
 		return false;
-
 	}
 	if(abs(x1 - x2)){           //Vertical Placement
 		for(int i = std::min(x1, x2); i <= std::max(x1, x2); ++i){

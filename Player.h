@@ -12,6 +12,8 @@ class Player{
 		Player(std::string name);
 		~Player();
 		std::string getname();
+		Grid* getGrid();
+		Grid* getEnemy();
 	private:
 		std::string name;
 		Grid* MyGrid;

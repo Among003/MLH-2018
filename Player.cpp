@@ -9,9 +9,14 @@ Player::Player(std::string name){
 }
 Player::~Player(){}
 
-std::string Player:: getname(){
+std::string Player::getname(){
 	return name;
 }
 
+Grid* Player::getGrid(){
+	return MyGrid;
+}
 
-
+Grid* Player::getEnemy(){
+	return EnemyGrid;
+}

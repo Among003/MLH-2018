@@ -1,15 +1,23 @@
+#ifndef __PLAYER_H__
+#define __PLAYER_H__
+#include "Grid.h"
 #include <iostream>
+#include <string>
+
 
 class Player{
 	
 	public:
-		Player(string);
+		Player();
+		Player(std::string name);
 		~Player();
-		string getname();
+		std::string getname();
 	private:
-		string name;
-		Grid MyGrid*;
-		Grid EnemyGrid*;
+		std::string name;
+		Grid* MyGrid;
+		Grid* EnemyGrid;
 
 
 };
+
+#endif

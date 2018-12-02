@@ -80,14 +80,18 @@ bool Grid::isValid(Ship* S, int x1, int y1, int x2, int y2){
 		return false;
 	}
 	else if(x1 != x2  && y1 != y2){
+		std::cout << "Place ship in straightline pls" << std::endl;
 		return false;
 	}
 	else if(std::max(abs(x1 - x2), abs(y1 - y2)) != S->getSize()){
+		std::cout<< "Coordinates do not match size of ship" << std::endl;
 		return false;
+
 	}
 	if(abs(x1 - x2)){           //Vertical Placement
 		for(int i = std::min(x1, x2); i <= std::max(x1, x2); ++i){
 			if(GameBoard[i][y1] != 0){
+				std:: cout << "Ship collision" << std:: endl;
 				return false;
 			}
 		}
@@ -95,6 +99,7 @@ bool Grid::isValid(Ship* S, int x1, int y1, int x2, int y2){
 	else {						//Horizontal Placement
 		for(int i = std::min(y1, y2); i <= std::max(y1, y2); ++i){
 			if(GameBoard[x1][i] != 0){
+				std:: cout << "Ship collision" << std:: endl;
 				return false;
 			}
 		}

@@ -15,7 +15,8 @@ class Grid{
 	bool isValid(Ship S, int x, int y, int x2, int y2);
 	void printBoard();
   private:
-  	int GameBoard [10][10]; 
+  	//int GameBoard [10][10]; 
+	int  **GameBoard;
   	int health = 17; 
 	
 };

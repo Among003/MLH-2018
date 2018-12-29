@@ -10,24 +10,31 @@ void PlaceShips(Player);
 
 
 int main(int argc, char const *argv[]){
-	std::string p1, p2 = "";
+	std::string p1, p2 = "a";
 
 	std::cout << "__________________________________________________________" << std::endl;
 	std::cout << "                     BATTLESHIP                           " << std::endl;
 	std::cout << "__________________________________________________________" << std::endl;
 
-	std::cout << "Enter Player1's name: ";
-	std::cin >> p1;
+	//std::cout << "Enter Player1's name: ";
+	//std::cin >> p1;
 
-	std::cout << "Enter Player2's name: ";
-	std::cin >> p2;
+	//std::cout << "Enter Player2's name: ";
+	//std::cin >> p2;
 
 	Player Player1 = Player(p1);
 	//Player Player2 = Player(p2);
 
+	//Grid*  practiceGrid = new Grid();
+	
+	
+	//practiceGrid->printBoard();
+	
 	Player1.getGrid()->printBoard();
-
-	//PlaceShips(Player1);
+	
+	PlaceShips(Player1);
+	
+	Player1.getEnemy()->printBoard();
 	//PlaceShips(Player2);
 	
 	//Player1.getGrid()->printBoard();

@@ -4,8 +4,8 @@ Player::Player(){}
 
 Player::Player(std::string name){
 	this->name = name;
-	Grid*  MyGrid = new Grid();
-	Grid*  EnemyGrid = new Grid();
+	MyGrid = new Grid();
+	EnemyGrid = new Grid();
 }
 Player::~Player(){}
 

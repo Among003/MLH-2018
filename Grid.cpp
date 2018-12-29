@@ -2,14 +2,31 @@
 
 
 Grid::Grid(){
-	GameBoard[0][0] = 0;
+	
+	GameBoard = new int* [10];
+	
+	for (unsigned i =  0; i < 10; i++){
+		
+		GameBoard[i] = new int [10];
+		memset(GameBoard[i], 0, 10 * sizeof(int));
+		
+		
+	}
+	
+	
+	
+	
+	
+	std:: cout << "Class Array location: " << this->GameBoard << std:: endl;
+	
+	/*GameBoard[0][0] = 0;
 	for(int i = 0; i < 10; ++i){
 		for(int j = 0; j < 10; ++j){
 			this->GameBoard[i][j] = 0;
 		}
-	}
+	}*/
 
-	std::cout << GameBoard[0][0] << std::endl;
+//	std::cout << GameBoard[0][0] << std::endl;
 
 	// for(int i = 0; i < 10; ++i){
 	// 	for(int j = 0; j < 10; ++j){
@@ -87,8 +104,9 @@ void Grid::printBoard(){
 			}
 		}
 		std::cout << std::endl << "--------------------------------------------------" << std::endl;
-
 	}
+	//std:: cout << GameBoard[0][0] << std::endl;
+	//std:: cout << "Address attempted to output: " << GameBoard << std:: endl;
 }
 
 
